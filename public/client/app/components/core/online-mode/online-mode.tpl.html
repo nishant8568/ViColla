@@ -1,0 +1,50 @@
+<md-content layout="column" layout-padding flex layout-fill>
+    <md-card ng-repeat="caller in onlineModeCtrl.callHistory | orderBy: '-startDate'" layout="row"
+             layout-align="start center">
+        <md-content layout="column" layout-align="center center" layout-margin flex-sm="20" flex-gt-sm="10">
+            <user-avatar></user-avatar>
+        </md-content>
+        <div layout="column" layout-margin layout-align="start start">
+            <div ng-show="appCtrl.user.username==caller.receivername" class="md-list-item-text" layout="column">
+                <strong id="expertName">{{caller.callerFirstName}} {{caller.callerLastName}}</strong>
+            </div>
+            <div ng-show="appCtrl.user.username==caller.callername" class="md-list-item-text" layout="column">
+                <strong id="receiverName">{{caller.receiverFirstName}} {{caller.receiverLastName}}</strong>
+            </div>
+            <div ng-show="appCtrl.user.username==caller.receivername">
+                <span style="font-size: small; color: green">{{caller.callerDesignation}}</span>
+                <small>{{caller.designation}}</small>
+            </div>
+            <div ng-show="appCtrl.user.username==caller.callername">
+                <span style="font-size: small; color: green">{{caller.receiverDesignation}}</span>
+                <small>{{receiver.designation}}</small>
+            </div>
+            <span flex=""></span>
+            <div ng-show="appCtrl.user.username==caller.receivername">
+                <i class="material-icons" ng-class="{red: caller.status=='call_missed',
+                    green: caller.status=='call_received'}">
+                    {{caller.status}}
+                </i>
+            </div>
+            <div ng-show="appCtrl.user.username==caller.callername">
+                <i class="material-icons" ng-class="{blue: true}">
+                    call_made
+                </i>
+            </div>
+        </div>
+        <span flex=""></span>
+        <div layout-margin layout="column" layout-align="center end">
+            <strong hide-sm hide-md>
+                {{utilityService.getFormattedDate(caller.startDate)}} |
+                {{utilityService.getFormattedTime(caller.startDate)}}
+            </strong>
+            <strong hide-gt-md>
+                {{utilityService.getFormattedDate(caller.startDate)}}
+            </strong>
+            <strong hide-gt-md>
+                {{utilityService.getFormattedTime(caller.startDate)}}
+            </strong>
+            <h6>{{utilityService.formatDuration(caller.duration)}}</h6>
+        </div>
+    </md-card>
+</md-content>

@@ -1,0 +1,175 @@
+<div layout="row" flex="">
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="leftMenu"
+                ng-hide="appCtrl.user.firstName == null || appCtrl.user.firstName.length == 0">
+        <md-toolbar class="md-medium md-hue-2">
+            <div layout="column" class="md-toolbar-tools-bottom inset" layout-align="start center">
+                <user-avatar ng-if="appCtrl.user.logoFilename == null" flex=""></user-avatar>
+                <img ng-if="appCtrl.user.logoFilename" ng-src="{{appCtrl.user.logoFilename}}" width="70">
+                <div style="font-size: small">{{appCtrl.user.firstName}} {{appCtrl.user.lastName}}</div>
+                <div style="font-size: small">{{appCtrl.user.email}}</div>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-item ng-click="showAccountDetails()">
+                <a>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">
+                            <md-icon>
+                                <i class="material-icons md-36 md-dark">person</i>
+                            </md-icon>
+                        </div>
+                        <div class="inset">Account
+                        </div>
+                    </md-item-content>
+                </a>
+            </md-item>
+            <md-item ng-click="showInfo()">
+                <a>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">
+                            <md-icon>
+                                <i class="material-icons md-36 md-dark">info</i>
+                            </md-icon>
+                        </div>
+                        <div class="inset">About
+                        </div>
+                    </md-item-content>
+                </a>
+            </md-item>
+            <md-item ng-click="showSettings()">
+                <a>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">
+                            <md-icon>
+                                <i class="material-icons md-36 md-dark">settings</i>
+                            </md-icon>
+                        </div>
+                        <div class="inset">Settings
+                        </div>
+                    </md-item-content>
+                </a>
+            </md-item>
+            <md-divider></md-divider>
+            <md-item ng-click="logoutUser()">
+                <a>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">
+                            <md-icon>
+                                <i class="material-icons">exit_to_app</i>
+                            </md-icon>
+                        </div>
+                        <div class="inset">Logout
+                        </div>
+                    </md-item-content>
+                </a>
+            </md-item>
+            <md-divider></md-divider>
+        </md-list>
+    </md-sidenav>
+    <md-toolbar class="md-medium" layout="row" ng-show="!showSearch" ng-class="{'md-warn md-hue-2': appCtrl.user.isExpert}">
+        <div class="md-toolbar-tools">
+            <md-button hide-gt-md class="md-icon-button" ng-click="toggleSidenavMenu()" aria-label="Settings"
+                       ng-hide="appCtrl.user.firstName == null || appCtrl.user.firstName.length == 0">
+                <md-icon>
+                    <i class="material-icons">menu</i>
+                </md-icon>
+            </md-button>
+            <h2 class="md-title">
+                ViColla Assistant
+            </h2>
+            <span flex=""></span>
+
+            <h3 hide-sm hide-md>
+                <span>{{appCtrl.user.firstName}} {{appCtrl.user.lastName}}</span>
+            </h3>
+            <md-menu-bar hide-sm hide-md ng-hide="appCtrl.user.firstName == null || appCtrl.user.firstName.length == 0">
+                <md-menu md-position-mode="target-right target">
+
+                    <md-button class="md-icon-button" aria-label="Options" ng-click="$mdOpenMenu($event)">
+                        <i ng-if="appCtrl.user.logoFilename == null" class="material-icons md-48">account_circle</i>
+                        <img ng-if="appCtrl.user.logoFilename" ng-src="{{appCtrl.user.logoFilename}}" width="50px">
+                    </md-button>
+
+                    <md-menu-content width="4">
+                        <div layout="column" layout-align="center center">
+                            <user-avatar ng-if="appCtrl.user.logoFilename == null" flex=""></user-avatar>
+                            <img ng-if="appCtrl.user.logoFilename" ng-src="{{appCtrl.user.logoFilename}}" width="100">
+                            <b>{{appCtrl.user.firstName}} {{appCtrl.user.lastName}}</b>
+                            <p style="font-size: x-small; color: gray;">{{appCtrl.user.email}}</p>
+                        </div>
+                        <md-divider></md-divider>
+                        <md-menu-item>
+                            <md-button ng-click="showAccountDetails()">
+                                <div layout="row" layout-align="start center">
+                                    <i class="material-icons md-36 md-dark">person</i>
+                                    <span flex="10"></span>
+
+                                    <p flex>Account</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="showInfo()">
+                                <div layout="row" layout-align="start center">
+                                    <i class="material-icons md-36 md-dark">info</i>
+                                    <span flex="10"></span>
+
+                                    <p flex>About</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="showSettings()">
+                                <div layout="row" layout-align="start center">
+                                    <i class="material-icons md-36 md-dark">settings</i>
+                                    <span flex="10"></span>
+
+                                    <p flex>Settings</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-divider></md-divider>
+                        <md-menu-item>
+                            <md-button ng-click="logout()">
+                                <div layout="row" layout-align="start center">
+                                    <i class="material-icons md-36 md-dark">exit_to_app</i>
+                                    <span flex="10"></span>
+
+                                    <p flex>Logout</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                        <md-divider></md-divider>
+                    </md-menu-content>
+                </md-menu>
+            </md-menu-bar>
+        </div>
+        <span flex=""></span>
+        <md-button aria-label="Search" ng-click="showSearch = !showSearch" hide-gt-md
+                   ng-hide="appCtrl.user.firstName == null || appCtrl.user.firstName.length == 0
+                   || appCtrl.user.isExpert == true || state.current.data.selectedTab != 0">
+            <md-icon>
+                <i class="material-icons">search</i>
+            </md-icon>
+        </md-button>
+    </md-toolbar>
+
+    <md-toolbar class="md-medium" class="md-hue-1" ng-show="showSearch">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="showSearch = !showSearch" aria-label="Back">
+                <md-icon>
+                    <i class="material-icons">arrow_back</i>
+                </md-icon>
+            </md-button>
+            <md-input-container md-theme="input" flex>
+                <label>&nbsp;</label>
+                <input ng-model="appCtrl.searchContact" placeholder="Search Experts">
+            </md-input-container>
+            <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+                <md-icon>
+                    <i class="material-icons">search</i>
+                </md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+</div>

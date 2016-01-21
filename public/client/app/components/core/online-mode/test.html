@@ -1,0 +1,17 @@
+<div layout="column" flex="15" layout-margin="">
+    <div layout="column" layout-align="start end" ng-repeat="option in options">
+        <md-button class="md-icon-button md-48" ng-click="optionClicked(option)"
+                   ng-class="{elementSelected:optionSelected == options[$index].name}">
+            <i class="material-icons md-36">{{option.icon}}</i>
+            <md-tooltip>{{option.tooltip}}</md-tooltip>
+        </md-button>
+    </div>
+    <span flex=""></span>
+    <md-content layout="column" layout-align="center center">
+        <md-whiteframe class="md-whiteframe-24dp" flex layout-align="center center"
+                       style="max-height: 80%; max-width: 80%;">
+            <video class="img-responsive" flex id='localVideo' autoplay muted>
+            </video>
+        </md-whiteframe>
+    </md-content>
+</div>

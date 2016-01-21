@@ -1,0 +1,21 @@
+<div layout="row" flex>
+    <div  layout="column" flex="15" layout-margin="">
+        <div ng-if="isExpert" layout="column" layout-align="start end" ng-repeat="option in options">
+            <md-button class="md-icon-button md-48" ng-click="optionClicked(option)"
+                       ng-class="{elementSelected:optionSelected == options[$index].name}">
+                <i class="material-icons md-36">{{option.icon}}</i>
+                <md-tooltip>{{option.tooltip}}</md-tooltip>
+            </md-button>
+        </div>
+    </div>
+    <md-content id="remoteVideoContainer" layout="column" layout-padding="" layout-align="center" flex="70">
+        <md-whiteframe class="md-whiteframe-24dp" flex layout-margin layout-align="center center">
+            <div>
+                <canvas id="helpCanvas"></canvas>
+            </div>
+        </md-whiteframe>
+    </md-content>
+    <md-content layout-margin flex="10">
+        <button class="btn btn-danger" ng-show="busy" ng-click="endCall('call_received')">End Call</button>
+    </md-content>
+</div>

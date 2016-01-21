@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="AbcApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>ViColla</title>
+    <!-- CSS -->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <link rel="stylesheet" href="bower_components/material-design-icons/iconfont/material-icons.css">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/online-mode.css">
+    <link rel="stylesheet" href="assets/css/offline-mode.css">
+    <!-- endinject -->
+</head>
+<body layout="column" ng-controller="AbcAppLandingController as appCtrl"  ng-cloak="">
+<header></header>
+<div layout="column" flex style="border: solid black 1px;" class="max-height no-overflow" ui-view=""></div>
+
+
+<!-- inject:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="app/app.module.js"></script>
+<script src="app/app.route.js"></script>
+<script src="app/app.landing.ctrl.js"></script>
+<script src="app/components/others/home/home-routes.conf.js"></script>
+<script src="app/components/others/home/home.ctrl.js"></script>
+<script src="app/services/auth-services.js"></script>
+<script src="app/components/others/register/register-routes.conf.js"></script>
+<script src="app/components/others/register/register.ctrl.js"></script>
+<script src="app/components/core/online-mode/online-mode.ctrl.js"></script>
+<script src="app/components/core/online-mode/online-mode.drv.js"></script>
+<script src="app/components/core/contacts/contacts.ctrl.js"></script>
+<script src="app/components/core/contacts/contacts.drv.js"></script>
+<script src="app/components/core/offline-mode/offline-mode.ctrl.js"></script>
+<script src="app/components/core/offline-mode/offline-mode.drv.js"></script>
+<script src="app/components/core/video-chat/video-chat.ctrl.js"></script>
+<script src="app/components/core/video-chat/video-chat.drv.js"></script>
+<script src="app/components/core/adapter.js"></script>
+<script src="app/components/core/config.js"></script>
+<script src="app/components/core/tools/tools.ctrl.js"></script>
+<script src="app/components/core/tools/tools.drv.js"></script>
+<script src="app/components/core/snapshotsAttributesDialog/snapshotsAttributesDialog.ctrl.js"></script>
+<script src="app/components/core/snapshots/snapshots.ctrl.js"></script>
+<script src="app/components/core/snapshots/snapshots.drv.js"></script>
+<script src="app/components/core/incomingCallDialog/incomingCall.ctrl.js"></script>
+<script src="app/components/core/video-chat/collaborate/collaborate-online.ctrl.js"></script>
+<script src="app/components/others/header/header.ctrl.js"></script>
+<script src="app/components/others/header/header.drv.js"></script>
+<script src="app/components/others/footer/footer.drv.js"></script>
+<script src="app/services/database-services.js"></script>
+<script src="app/services/utility-service.js"></script>
+<script src="app/services/socket-services.js"></script>
+<script src="app/components/core/tabs/navigation-tabs.ctrl.js"></script>
+<script src="app/components/core/tabs/navigation-tabs.drv.js"></script>
+<script src="app/components/core/tabs/navigation-tabs-routes.conf.js"></script>
+<script src="app/components/core/tabs/navigation-tabs.services.js"></script>
+<!-- endinject -->
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src='/socket.io/socket.io.js'></script>
+</body>
+</html>

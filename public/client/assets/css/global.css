@@ -1,0 +1,70 @@
+.coverage_red {
+    border: 3px red solid;
+}
+
+.coverage_blue {
+    border: 3px blue solid;
+}
+
+.coverage_green {
+    border: 3px green solid;
+}
+
+.coverage_black {
+    border: 3px black solid;
+}
+
+.coverage_black_canvas {
+    border: 1px black solid;
+    #max-width: 640px;
+    #min-width: 640px;
+    #margin: auto;
+}
+
+.coverage_brown {
+    border: 3px brown solid;
+}
+
+h6, h4, p, b {
+    color: black;
+}
+
+.md-icon-button.md-36 {
+    height: 36px;
+}
+
+.md-icon-button.md-48 {
+    height: 48px;
+}
+
+.elementSelected {
+    color: blue;
+}
+
+div.ng-scope {
+    height: 100%;
+}
+
+.carddemoBasicUsage .card-media {
+    background-color: #999999;
+}
+.card-contact {
+    background-color: lightgray;
+}
+
+.online {
+    border-left: 7px solid lime;
+}
+
+.offline {
+    border-left: 7px solid lightgrey;
+}
+
+.expertiseTag {
+    font-style: italic;
+    color: #0f7595;
+}
+
+.user-avatar {
+    border-radius: 99%;
+}

@@ -1,0 +1,6 @@
+md-menu-content.md-dense md-menu-item {
+    min-height: 40px;
+}
+md-menu-content.md-menu-bar-menu.md-dense .md-button {
+    height: 100%;
+}

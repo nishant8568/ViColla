@@ -1,0 +1,121 @@
+<md-content layout="column" layout-align="start center" flex>
+    <md-whiteframe class="md-whiteframe-24dp" layout="column" layout-align="center center">
+        <form name="userForm" layout="column" layout-margin="">
+            <div layout-gt-sm="row" layout-margin="">
+                <md-input-container class="md-icon-float md-block" layout-margin="">
+                    <label>First name</label>
+                    <md-icon class="name">
+                        <i class="material-icons green">face</i>
+                    </md-icon>
+                    <input ng-model="registerCtrl.user.firstName">
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block" layout-margin="">
+                    <label>Last Name</label>
+                    <md-icon class="name">
+                        <i class="material-icons green">face</i>
+                    </md-icon>
+                    <input ng-model="registerCtrl.user.lastName">
+                </md-input-container>
+                <md-datepicker ng-model="registerCtrl.user.birthDate" md-placeholder="Date of Birth"></md-datepicker>
+            </div>
+
+            <div layout-gt-sm="row" layout-margin="">
+                <div layout="column">
+                    <div layout-gt-sm="row" layout-margin="">
+                        <md-input-container class="md-icon-float md-block" layout-margin="">
+                            <label>Username</label>
+                            <md-icon class="name">
+                                <i class="material-icons deepskyblue">account_circle</i>
+                            </md-icon>
+                            <input ng-model="registerCtrl.user.userName">
+                        </md-input-container>
+                        <md-input-container class="md-icon-float md-block" layout-margin="">
+                            <label>Password</label>
+                            <md-icon class="name">
+                                <i class="material-icons deepskyblue">fingerprint</i>
+                            </md-icon>
+                            <input ng-model="registerCtrl.user.password" type="password">
+                        </md-input-container>
+                    </div>
+
+                    <div layout-gt-sm="row" layout-margin="">
+                        <md-input-container layout-margin="" class="md-icon-float md-block" layout-margin="">
+                            <label>Phone Number</label>
+                            <md-icon class="name">
+                                <i class="material-icons">call</i>
+                            </md-icon>
+                            <input ng-model="registerCtrl.user.phone">
+                        </md-input-container>
+
+                        <md-input-container layout-margin="" class="md-icon-float md-block" layout-margin="">
+                            <label>Email Address</label>
+                            <md-icon class="name">
+                                <i class="material-icons green">email</i>
+                            </md-icon>
+                            <input ng-model="registerCtrl.user.email">
+                        </md-input-container>
+                    </div>
+                </div>
+                <md-content class="carddemoBasicUsage" layout="column" layout-padding flex>
+                    <md-card flex class="card-media" layout-align="center center">
+                        <md-button ng-click="selectPhoto()" class="md-icon-button md-48">
+                            <i class="material-icons md-48">add_a_photo</i>
+                            <md-tooltip>Upload Photo</md-tooltip>
+                            {{registerCtrl.user.logo}}
+                        </md-button>
+                        <input type="file" aria-label="" class="form-control" id="browsePhoto"
+                               file-model="registerCtrl.user.logo" ng-show=false>
+                    </md-card>
+                </md-content>
+            </div>
+
+            <md-input-container layout-margin="" class="md-icon-float md-block" layout-margin="">
+                <label>Address</label>
+                <md-icon class="name">
+                    <i class="material-icons blue">place</i>
+                </md-icon>
+                <input ng-model="registerCtrl.user.address">
+            </md-input-container>
+
+            <!--<md-input-container layout-margin="" class="md-icon-float md-block" layout-margin="">
+                <md-icon class="name">
+                    <i class="material-icons green">account_circle</i>
+                </md-icon>
+                <input type="file" aria-label="" class="form-control" id="logo" file-model="registerCtrl.user.logo">
+            </md-input-container>-->
+
+            <div layout-gt-sm="row" layout-margin="">
+                <md-input-container class="md-icon-float md-block" layout-margin="" flex-gt-sm="50">
+                    <label>Designation</label>
+                    <md-icon class="name">
+                        <i class="material-icons blue">domain</i>
+                    </md-icon>
+                    <input ng-model="registerCtrl.user.designation">
+                </md-input-container>
+                <!--<md-content layout-margin="">
+                    <md-checkbox md-no-ink class="md-primary" ng-model="registerCtrl.user.isExpert"
+                                 aria-label="isExpert">
+                        Expert
+                    </md-checkbox>
+                </md-content>-->
+            </div>
+
+            <div layout-gt-sm="row" layout-margin="">
+                <md-chips aria-label="expertiseTags" readonly=false
+                          ng-model="registerCtrl.user.tags"
+                          placeholder="Enter a tag"
+                          secondary-placeholder="+Expertise Tag">
+                    <md-chip-template>
+                        <strong>{{$chip}}</strong>
+                    </md-chip-template>
+                </md-chips>
+                <span flex=""></span>
+                <br show-sm>
+                <md-button class="md-raised md-primary" ng-click="registerCtrl.signUp()">Register</md-button>
+            </div>
+        </form>
+    </md-whiteframe>
+    <div>
+        <h6 style="color: blue;"><a href="#/login">Already Registered? Login here</a></h6>
+    </div>
+</md-content>

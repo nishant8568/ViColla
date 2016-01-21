@@ -1,0 +1,40 @@
+<md-content layout="column" layout-align="center center" flex>
+    <md-whiteframe class="md-whiteframe-24dp" layout="row" layout-align="center center">
+        <form name="userForm" layout="column" layout-margin="">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Login</h2>
+                </div>
+            </md-toolbar>
+            <br>
+            <md-input-container class="md-icon-float md-block" layout-margin="">
+                <label>Username</label>
+                <md-icon class="name">
+                    <i class="material-icons deepskyblue">account_circle</i>
+                </md-icon>
+                <input ng-model="homeCtrl.user.username">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block" layout-margin="">
+                <label>Password</label>
+                <md-icon class="name">
+                    <i class="material-icons deepskyblue">fingerprint</i>
+                </md-icon>
+                <input ng-model="homeCtrl.user.password" type="password">
+            </md-input-container>
+            <md-content <!--hide-sm hide-md--> layout-margin="">
+                <md-checkbox md-no-ink class="md-primary" ng-model="homeCtrl.user.loginAsExpert"
+                             aria-label="isExpert">
+                    Expert Mode
+                </md-checkbox>
+            </md-content>
+
+            <div layout="row" layout-margin="">
+                <span flex=""></span>
+                <md-button class="md-raised md-primary" ng-click="homeCtrl.submitCredentials()">Login</md-button>
+            </div>
+        </form>
+    </md-whiteframe>
+    <div>
+        <h6 style="color: red;"><a href="#/register">Not Registered? Register here</a></h6>
+    </div>
+</md-content>

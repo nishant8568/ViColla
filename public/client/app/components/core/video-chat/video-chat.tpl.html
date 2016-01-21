@@ -1,0 +1,31 @@
+<div layout="row" flex>
+    <div layout="column" flex="15" layout-margin="">
+        <div layout="column" ng-if="isExpert" layout-align="start end" ng-repeat="option in options">
+            <md-button class="md-icon-button md-48" ng-click="optionClicked(option)"
+                       ng-class="{elementSelected:optionSelected == options[$index].name}">
+                <i class="material-icons md-36">{{option.icon}}</i>
+                <md-tooltip>{{option.tooltip}}</md-tooltip>
+            </md-button>
+        </div>
+        <span flex=""></span>
+        <md-content layout="column" layout-align="center center">
+            <md-whiteframe ng-hide="isCollaborating" class="md-whiteframe-24dp" flex layout-align="center center"
+                           style="max-height: 80%; max-width: 80%;">
+                <video class="img-responsive" flex id='localVideo' autoplay>
+                </video>
+            </md-whiteframe>
+        </md-content>
+    </div>
+    <div ng-show="isCollaborating" id="helperCanvas" class="helpCanvasContainer">
+        <canvas id="helpCanvas"></canvas>
+    </div>
+    <md-content id="remoteVideoContainer" layout="column" layout-padding="" layout-align="center" flex="60">
+        <div class="helpCanvasContainer" ng-hide="isCollaborating" flex>
+            <video class="img-responsive" id='remoteVideo' autoplay
+                   style="max-width: 100%; max-height: 100%;"></video>
+        </div>
+    </md-content>
+    <md-content layout-margin flex>
+        <md-button class="md-warn md-raised md-hue-2" ng-show="busy" ng-click="endCall('call_received')">End Call</md-button>
+    </md-content>
+</div>

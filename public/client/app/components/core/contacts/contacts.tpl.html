@@ -1,0 +1,38 @@
+<md-content layout-padding flex>
+    <md-input-container hide-sm hide-md class="md-icon-float md-block">
+        <label>Search</label>
+        <md-icon>
+            <i class="material-icons md-24">search</i>
+        </md-icon>
+        <input ng-model="findExpert" type="text">
+    </md-input-container>
+    <md-card ng-repeat="contact in appCtrl.contacts | filter: findExpert | filter: appCtrl.searchContact | orderBy:['-status', 'firstName']"
+             layout="row" layout-align="start center" ng-class="{online: contact.status, offline: !contact.status}">
+        <md-content layout="column" layout-align="center center" layout-margin flex-sm="20" flex-gt-sm="10">
+            <user-avatar></user-avatar>
+        </md-content>
+        <div layouot="column" layout-margin layout-align="start start">
+            <div class="md-list-item-text" layout="column">
+                <strong id="expertName">{{contact.firstName}} {{contact.lastName}}</strong>
+            </div>
+            <div>
+                <span style="font-size: small; color: grey">{{contact.designation}}</span>
+            </div>
+            <span flex=""></span>
+            <div layout="row">
+                <div ng-repeat="tag in contact.tags">
+                    <span class="expertiseTag">{{tag}} &nbsp;</span>
+                </div>
+            </div>
+        </div>
+        <span flex=""></span>
+        <div layout="column" layout-margin="">
+            <div layout-margin>
+                <md-button ng-disabled="!contact.status" ng-click="videoCall(contact.username)" class="md-icon-button md-48">
+                    <i class="material-icons md-36">videocam</i>
+                    <md-tooltip>Video Call</md-tooltip>
+                </md-button>
+            </div>
+        </div>
+    </md-card>
+</md-content>

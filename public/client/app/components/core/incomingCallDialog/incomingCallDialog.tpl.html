@@ -1,0 +1,41 @@
+<md-dialog aria-label="Incoming Call">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Incoming Call...</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content layout="column" layout-margin>
+            <form>
+                <section layout="row" layout-margin>
+                    <div layout="column" class="md-toolbar-tools-bottom inset" layout-align="start center">
+                        <user-avatar ng-if="user.logoFilename == null" flex=""></user-avatar>
+                        <img ng-if="user.logoFilename" ng-src="{{user.logoFilename}}" width="100">
+                    </div>
+                    <div layout="column" layout-margin layout-align="space-around start">
+                        <div layout="column" layout-padding>
+                            <b style="font-size: x-large">{{user.firstName}} {{user.lastName}}</b>
+                            <b style="font-size: small">{{user.designation}}</b>
+                            <b style="font-size: small">{{user.place}}</b>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </md-dialog-content>
+
+        <div class="md-actions" layout="row">
+            <md-button ng-click="answer('receive')" >
+                <md-icon>
+                    <i class="material-icons blue">call</i>
+                    <md-tooltip>Answer</md-tooltip>
+                </md-icon>
+            </md-button>
+            <md-button ng-click="answer('decline')" style="margin-right:20px;" >
+                <md-icon>
+                    <i class="material-icons red">call_end</i>
+                    <md-tooltip>Decline</md-tooltip>
+                </md-icon>
+            </md-button>
+        </div>
+    </form>
+</md-dialog>

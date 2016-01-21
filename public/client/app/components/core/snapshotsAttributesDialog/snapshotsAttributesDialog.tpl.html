@@ -1,0 +1,35 @@
+<md-dialog aria-label="Snaposhot Details">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Snaposhot Details</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content layout="column">
+            <form>
+                <section layout="row">
+                    <h4>Snapshot at : {{ videoplayTime }} </h4>
+                </section>
+                <section layout="row">
+                    <h4>Text should be displayed for </h4>
+                    <input type="number" ng-model="durationSet" min="1" value="3"
+                           style="margin-left: 2px; margin-right: 2px; padding-left: 20px; width: 50px;">
+                    <h4> second(s)</h4>
+                </section>
+                <md-input-container flex>
+                    <label>Description</label>
+                    <textarea ng-model="description" columns="1"></textarea>
+                </md-input-container>
+            </form>
+        </md-dialog-content>
+
+        <div class="md-actions" layout="row">
+            <md-button ng-click="answer('cancel')" >
+                Cancel
+            </md-button>
+            <md-button ng-click="answer('apply')" style="margin-right:20px;" >
+                Apply
+            </md-button>
+        </div>
+    </form>
+</md-dialog>

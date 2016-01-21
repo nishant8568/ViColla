@@ -1,0 +1,17 @@
+{
+  "name": "ViColla",
+  "description": "ViColla application",
+  "main": "index.js",
+  "authors": [
+    "nishant"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-material": "~0.11.4",
+    "material-design-icons": "~2.1.3",
+    "lodash": "*",
+    "moment": "^2.9.0"
+  }
+}

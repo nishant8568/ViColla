@@ -1,0 +1,90 @@
+<md-content layout="row" layout-padding flex layout-fill>
+    <div flex="5" layout-margin>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z5" md-component-id="left"
+                    layout="column" layout-align="start center">
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Open</h1>
+            </md-toolbar>
+            <md-content layout="column" flex>
+                <div layout="row" layout-align="start center">
+                    <input type="file" aria-label="" class="form-control" id="openVideo"
+                           file-model="videoFile" ng-show=false onchange="angular.element(this).scope().fileNameChanged(this)">
+                    <md-button id="addVideoButton" class="md-raised md-primary" aria-label="Open"
+                               ng-click="openFileDialog()" flex="20">
+                        Browse
+                        <md-tooltip>Open</md-tooltip>
+                    </md-button>
+                    <md-input-container class="md-block" flex>
+                        <label>Filename</label>
+                        <input name="filename" ng-model="videoName">
+                    </md-input-container>
+                </div>
+                <md-list>
+                    <md-list-item ng-repeat="videoItem in videoCache" layout="row" layout-align="start center">
+                        <div>
+                            <i class="material-icons" md-24>video_library</i>
+                        </div>
+                        <div class="md-list-item-text" layout="column" layout-padding>
+                            <b id="expertName">{{videoItem.title}}</b>
+                        </div>
+                        <span flex=""></span>
+
+                        <div layout="column">
+                            <b class="dateTime">{{videoItem.atDateTime.atDate}}</b>
+                            <b class="dateTime">{{videoItem.atDateTime.atTime}}</b>
+                        </div>
+                        <md-divider></md-divider>
+                    </md-list-item>
+                </md-list>
+                <span flex=""></span>
+                <md-button class="md-raised md-primary" ng-click="closeSideNav()">
+                    Close
+                    <md-tooltip>Close</md-tooltip>
+                </md-button>
+            </md-content>
+        </md-sidenav>
+        <md-button ng-click="toggleLeft()" class="md-icon-button md-48">
+            <i class="material-icons md-36">menu</i>
+        </md-button>
+    </div>
+    <span flex></span>
+    <div layout="column" layout-margin>
+        <div id="canvasContainer" layout="row">
+            <canvas id="outputCanvas"
+                    ng-mousedown="mouseDownHandler($event)"
+                    ng-mousemove="mouseMoveHandler($event)"
+                    ng-mouseup="mouseUpHandler($event)">
+                <p>Sorry your browser does not support HTML5</p>
+            </canvas>
+        </div>
+        <div id="playerControlsContainer" layout="row" layout-align="space-around center" class="coverage_black_canvas">
+            <md-button class="md-icon-button md-36" aria-label="Play" ng-click="playVideo()">
+                <i class="material-icons md-36">{{playPlauseButton}}</i>
+            </md-button>
+            <md-button layout-margin class="md-icon-button md-36" aria-label="ToggleAnnotations"
+                       ng-click="toggleAnnotations()">
+                <i class="material-icons md-24"
+                   ng-class="{disabled: disableShowAnnotationsIcon}">settings_input_svideo</i>
+                <md-tooltip>Toggle Annotations</md-tooltip>
+            </md-button>
+            <span layout-margin>
+                <h5>{{formatDuration((videoObject.currentTime)*1000)}}</h5>
+            </span>
+            <md-slider hide-sm hide-md flex min="0" max="{{videoObject.duration}}" ng-model="videoObject.currentTime"
+                       aria-label="blue" class="md-primary" layout-margin>
+            </md-slider>
+            <span hide-sm hide-md layout-margin>
+                <h5>{{formatDuration((videoObject.duration)*1000)}}</h5>
+            </span>
+            <md-button class="md-icon-button md-36" aria-label="Volume" ng-click="toggleVolumeStatus()" layout-margin>
+                <i class="material-icons md-36">{{volumeStatus}}</i>
+            </md-button>
+        </div>
+        <video controls muted id="videoBackgrounddata">
+        </video>
+    </div>
+    <tools tool="drawingStyle" ng-show="getExpertFlag()" stroke-color="strokeColor"
+           undo="undo()" save="saveSnapshot()" flex="5"></tools>
+    <span flex="15" ng-hide="getExpertFlag()"></span>
+    <snapshots layout-margin flex="15" ng-show="getExpertFlag()"></snapshots>
+</md-content>
